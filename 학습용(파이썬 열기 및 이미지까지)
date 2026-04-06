@@ -1,0 +1,41 @@
+import pygame
+
+pygame.init()
+
+WINDOW_WIDTH = 800
+WINDOW_HEIGHT = 800
+
+#창 설정
+display_surface = pygame.display.set_mode((WINDOW_HEIGHT, WINDOW_WIDTH))
+pygame.display.set_caption("Hello World!")
+
+#이미지 붙이고 설정
+chair_image = pygame.image.load("free-icon-wingback-chair-1698719.png")
+chair_rect = chair_image.get_rect()
+chair_rect.topleft = (10, 10)
+#RGB 색
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+GREEN = (0, 255, 0)
+
+#백그라운드 색깔 설정
+display_surface.fill(BLUE)
+
+#line 함수 그림 그리기
+pygame.draw.line(display_surface, RED, (300, 100), (500, 200), 3)
+pygame.draw.circle(display_surface, RED, (WINDOW_HEIGHT//2, WINDOW_WIDTH//2), 50, 3)
+
+#이미지 붙이고 설정
+elephant_image = pygame.event.get()
+
+#게임이 동작하는 동안 이벤트
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    display_surface.blit(chair_image, chair_rect)
+    #디스플레이 업데이트
+    pygame.display.update()        
+
+pygame.quit()
